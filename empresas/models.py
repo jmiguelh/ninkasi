@@ -1,5 +1,5 @@
 from django.db import models
-
+import pandas as pd
 # Create your models here.
 
 
@@ -41,3 +41,18 @@ class Empresa(models.Model):
 
     def __str__(self):
         return self.nome
+
+
+def buscar_empresa():
+    url = 'http://bvmf.bmfbovespa.com.br/CapitalSocial/'
+    df = pd.read_html(url, decimal=',', thousands='.')[0]
+    df.rename(columns={"Código": "codigo", "Nome do Pregão": "nome",
+                       "Denominação Social": "razao_social",
+                       "Segmento de Mercado": "segmento",
+                       "Capital R$": "capital", "Qtde Ações Ordinárias": "qtd_ordinarias",
+                       "Qtde Ações Preferenciais": "qtd_preferenciais"}, inplace=True)
+    df.set_index('codigo', inplace=True)
+    df.drop(columns=['Tipo de Capital', 'Aprovado em',
+                     'Qtde Total de Ações'], inplace=True)
+    df.dropna(inplace=True)
+    return df
