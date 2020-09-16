@@ -9,8 +9,8 @@ autopep8 = "*"
 
 [packages]
 django = "*"
-investpy = "*"
 python-decouple = "*"
+pandas = "*"
 
 [requires]
 python_version = "3.8"

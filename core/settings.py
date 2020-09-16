@@ -42,6 +42,7 @@ INSTALLED_APPS = [
 
     # meus Apps
     "users.apps.UsersConfig",
+    "empresas"
 ]
 
 MIDDLEWARE = [
