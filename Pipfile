@@ -11,6 +11,9 @@ autopep8 = "*"
 django = "*"
 python-decouple = "*"
 pandas = "*"
+djangorestframework = "*"
+markdown = "*"
+django-filter = "*"
 
 [requires]
 python_version = "3.8"

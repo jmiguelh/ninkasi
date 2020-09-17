@@ -39,7 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     # Terceiros
-
+    'rest_framework',
     # meus Apps
     "users.apps.UsersConfig",
     "empresas"
